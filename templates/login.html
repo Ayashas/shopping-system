@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name = "viewport" content="width=device-width, initial-scale=1" />
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+  <title>
+      {% block title %}Login{% endblock %}
+  </title>
+    <body
+        style="  background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F92746073557462643%2F&psig=AOvVaw2MbTTz19L045wrewi9Ic6P&ust=1668061814113000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCIC619O8oPsCFQAAAAAdAAAAABAE')
+">
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+ {% if messages %}
+ {% for category, message in messages %}
+ {% if category == 'error' %}
+
+ <div class="alert alert-danger alert-dismissable fade show" role="alert">
+     {{ message }}
+     <button type="button" class="close" data-dismiss="alert">
+         <span aria-hidden="true">&times;</span>
+     </button>
+ </div>
+ {% else %}
+ <div class="alert alert-success alert-dismissable fade show" role="alert">
+     {{ message }}
+     <button type="button" class="close" data-dismiss="alert">
+         <span aria-hidden="true">&times;</span>
+     </button>
+ </div>
+ {% endif %}
+ {% endfor %}
+ {% endif %}
+ {% endwith %}
+    <div class="wrapper fadeInDown" style="
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;">
+        <div id="formContent" style="
+        margin-top:10%;
+-webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 10px 30px 10px 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding-bottom: 10px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0);
+  background-colour:  black;
+  text-align: center;">
+        <form method="post"
+              style=
+                      'display:relative;
+                      align:center
+                      padding:10%;
+                      margin: auto;
+                      margin-top:10%;
+                      width:50%'
+        >
+    <h3 align="center">Login</h3>
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter email"
+        />
+    </div>
+    <div class="form-group">
+        <label for="pass">Password</label>
+        <input
+                type="password"
+                class="form-control"
+                id="pass"
+                name="pass"
+                placeholder="Enter password"
+        />
+    </div>
+
+            <br/>
+            <a href="{{url_for('register')}}">New here? Create an account</a>
+            <br>
+            
+            <br />
+            <br />
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        </div>
+    </div>
+
+
+
+        <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+
+
+</body>
+</html>
